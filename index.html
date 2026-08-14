@@ -685,7 +685,7 @@
           const topWhiteBgGradient = sec.querySelector('.topWhiteBgGradient');
           const bottomWhiteBgGradient = sec.querySelector('.bottomWhiteBgGradient');
           const contentBlock = sec.querySelector('.content-block');
-          const title = sec.querySelectorAll('.sec-title');
+          const titles = sec.querySelectorAll('.sec-title');
           const subtitle = sec.querySelector('.sec-subtitle');
           const desc = sec.querySelector('.sec-desc');
           const descs = sec.querySelectorAll('.sec-desc');
@@ -693,28 +693,29 @@
           const sustainableBtn = sec.querySelector('.sustainable-btn');
           const learnMoreBtn = sec.querySelector('.sec-buttons');
 
-          function getTitleAnimationSize(el) {
+          function getTitleAnimationSize() {
             const width = window.innerWidth;
 
-            let targetSize;
-
-            if (width >= 1536) {
-              targetSize = 72; // 2XL / large desktop
-            } else if (width >= 1280) {
-              targetSize = 64; // XL
-            } else if (width >= 1024) {
-              targetSize = 56; // LG
-            } else if (width >= 768) {
-              targetSize = 37; // MD / tablet
-            } else if (width >= 640) {
-              targetSize = 30; // SM
-            } else {
-              targetSize = 26; // mobile
+            if (width >= 1024) {
+              // Large / desktop
+              return {
+                from: 72,
+                to: 56,
+              };
             }
 
+            if (width >= 768) {
+              // Medium / tablet
+              return {
+                from: 37,
+                to: 34,
+              };
+            }
+
+            // Mobile
             return {
-              from: targetSize ,
-              to: targetSize
+              from: 26,
+              to: 24,
             };
           }
           function getContentShift() {
@@ -787,27 +788,30 @@
             }
           });
 
-          if (title.length) {
-            title.forEach((el, idx) => {
-              const { from, to } = getTitleAnimationSize(el);
+          if (titles.length > 0) {
+            const { from, to } = getTitleAnimationSize();
+
+            titles.forEach((el) => {
+              // Skip titles that are currently hidden
+              if (getComputedStyle(el).display === "none") {
+                return;
+              }
 
               gsap.set(el, {
                 fontSize: from,
                 transformOrigin: "center center",
-                willChange: "font-size"
+                willChange: "font-size",
               });
 
-              if (idx !== 0) {
-                tl.to(
-                  el,
-                  {
-                    fontSize: to,
-                    duration: 1,
-                    ease: "none"
-                  },
-                  0.05
-                );
-              }
+              tl.to(
+                el,
+                {
+                  fontSize: to,
+                  duration: 1.5,
+                  ease: "power2.out",
+                },
+                // 0.05
+              );
             });
           }
           if (bottomWhiteBgGradient) {

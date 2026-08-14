@@ -161,6 +161,8 @@
       transform: translate3d(0, 0, 0);
       will-change: transform, opacity;
       pointer-events: none;
+      border: none !important;
+
     }
 
     .bottom-white-shadow-overlay {
@@ -177,6 +179,42 @@
       transform: translate3d(0, 0, 0);
       will-change: transform, opacity;
       pointer-events: none;
+      border: none !important;
+    }
+
+    /* --------------------------------------------------
+   Section boundary gradients
+-------------------------------------------------- */
+
+    .section-bottom-gradient,
+    .section-top-gradient {
+      position: absolute;
+      left: -5%;
+      right: -5%;
+      height: 14vh;
+      pointer-events: none;
+      z-index: 30;
+      will-change: opacity, transform;
+    }
+
+    /* Bottom of Section 1 */
+    .section-bottom-gradient {
+      bottom: -1px;
+      background: linear-gradient(to bottom,
+          rgba(134, 154, 172, 0) 0%,
+          rgba(134, 154, 172, 0.18) 35%,
+          rgba(134, 154, 172, 0.55) 70%,
+          rgba(134, 154, 172, 0.9) 100%);
+    }
+
+    /* Top of Section 2 */
+    .section-top-gradient {
+      top: -1px;
+      background: linear-gradient(to bottom,
+          rgba(134, 154, 172, 0.9) 0%,
+          rgba(134, 154, 172, 0.55) 30%,
+          rgba(134, 154, 172, 0.18) 70%,
+          rgba(134, 154, 172, 0) 100%);
     }
 
     /* Side Nav Indicator Pulse */
@@ -226,20 +264,18 @@
   <!-- MAIN SCROLL CONTAINER -->
   <main id="scroll-container" class="relative w-full">
     <section id="section-1"
-      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-start">
-      <!-- class="section-block relative w-full h-screen overflow-hidden flex items-center justify-start px-6 sm:px-16 md:px-24"> -->
+      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-start border-0!">
       <picture>
-        <source media="(max-width: 480px)" srcset="https://vpstart.com/frontend/images/home/v2/mr.phallyx402.jpg">
-        <source media="(max-width: 1024px)" srcset="https://vpstart.com/frontend/images/home/v2/mr.phallyx768.jpg">
-        <source media="(min-width: 1025px)" srcset="https://vpstart.com/frontend/images/home/v2/mr.phally.jpg">
-        <img src="https://vpstart.com/frontend/images/home/v2/mr.phally.jpg" alt="Mr.Phally"
-          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
+        <source media="(max-width: 480px)" srcset="./images/mr.phallyx402.jpg">
+        <source media="(max-width: 1024px)" srcset="./images/mr.phallyx768.jpg">
+        <source media="(min-width: 1025px)" srcset="./images/mr.phally.jpg">
+        <img src="./images/mr.phally.jpg" alt="Mr.Phally"
+          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
       <div class="pointer-events-none absolute z-2 h-20 w-[2px]" style="left:10%; top: 10%;">
         <span class="particle-line absolute inset-x-0 top-0 h-full w-[2px]"></span>
         <span class="particle-dot absolute left-1/2 top-0 w-1.5 h-1.5 -translate-x-1/2 rounded-full"></span>
       </div>
-      <!-- Left Aligned Text Container -->
       <div class="section-content slide-content story-copy story-copy-left ">
         <blockquote
           class=" font-body text-[28px] max-w-[750px] me-auto font-bold italic leading-[1.4] text-white sm:text-4xl lg:text-[48px] relative">
@@ -253,7 +289,7 @@
           <p
             class="font-['Arial'] text-white text-[40px] font-bold leading-[140%] tracking-[2px] [-webkit-text-stroke:0.9px_#1527E3]">
             Phally,</p>
-          <p class="text-lg text-white sm:text-2xl lg:text-[40px] [-webkit-text-stroke:0.9px_#0D0D0D]">
+          <p class="text-lg text-white sm:text-2xl lg:text-[40px]">
             CEO and Founder of VP.Start
           </p>
         </footer>
@@ -263,19 +299,18 @@
         <span class="particle-dot absolute left-1/2 top-0 w-1.5 h-1.5 -translate-x-1/2 rounded-full"></span>
       </div>
       <div class="bottomWhiteBgGradient z-10 bottom-white-shadow-overlay pointer-events-none"></div>
-
     </section>
 
     <section id="section-2"
-      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-center">
+      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex justify-center border-0!">
       <picture>
         <source media="(max-width: 480px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/the-sima-journeyx402.jpg">
+          srcset="./images/the-sima-journeyx402.jpg">
         <source media="(max-width: 1024px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/the-sima-journeyx768.jpg">
-        <source media="(min-width: 1025px)" srcset="https://vpstart.com/frontend/images/home/v2/the-sima-journey.jpg">
-        <img src="https://vpstart.com/frontend/images/home/v2/the-sima-journey.jpg" alt="Mr.Phally"
-          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
+          srcset="./images/the-sima-journeyx768.jpg">
+        <source media="(min-width: 1025px)" srcset="./images/the-sima-journey.jpg">
+        <img src="./images/the-sima-journey.jpg" alt="The SIMA JOURNEY"
+          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
       <div class="topWhiteBgGradient z-10 top-white-shadow-overlay pointer-events-none"></div>
       <div class="pointer-events-none absolute z-2 h-20 w-[2px]" style="left:10%; top: 15%;">
@@ -388,20 +423,17 @@
 
     </section>
     <section id="section-3"
-      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-center">
+      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex justify-center">
       <picture>
         <source media="(max-width: 480px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/worldwide-challengesx402.jpg">
+          srcset="./images/worldwide-challengesx402.jpg">
         <source media="(max-width: 1024px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/worldwide-challengesx768.jpg">
+          srcset="./images/worldwide-challengesx768.jpg">
         <source media="(min-width: 1025px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/worldwide-challenges.jpg">
-        <img src="https://vpstart.com/frontend/images/home/v2/worldwide-challenges.jpg" alt="Mr.Phally"
-          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
+          srcset="./images/worldwide-challenges.jpg">
+        <img src="./images/worldwide-challenges.jpg" alt="World Wide Challenges"
+          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
-      <img src="https://vpstart.com/frontend/images/home/v2/worldwide-challenges.jpg" alt="Kinetic Light Design"
-        class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
-
       <div class="topWhiteBgGradient z-10 top-white-shadow-overlay pointer-events-none"></div>
       <div class="pointer-events-none absolute z-2 h-20 w-[2px]" style="left:10%; top: 40%;">
         <span class="particle-line absolute inset-x-0 top-0 h-full w-[2px]"></span>
@@ -431,19 +463,9 @@
       <div
         class="content-block w-full relative z-20 flex flex-col items-center justify-center text-center space-y-4 lg:space-y-6">
         <div class="sec-header-group space-y-4 lg:space-y-6">
-          <div class="hidden sm:block tracking-[2px] ">
-            <h2
-              class="sec-title title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[72px] tracking-[2px]">
-              What kind of future do you want
-            </h2>
-            <h2
-              class="sec-title title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[72px] tracking-[2px]">
-              for our world?
-            </h2>
-          </div>
           <h2
-            class="sec-title block md:hidden! title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[72px] tracking-[2px]">
-            What kind of future do you want for our world?
+            class="sec-title mx-auto title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[72px] tracking-[2px]">
+            What kind of future do you want <br class="hidden lg:inline"> for our world?
           </h2>
           <p
             class="sec-subtitle mx-auto text-base font-bold italic text-white sm:text-[22px] lg:text-[28px] [-webkit-text-stroke:0.5px_#0600ff]">
@@ -467,15 +489,15 @@
 
     </section>
     <section id="section-4"
-      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-center">
+      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex justify-center">
       <picture>
         <source media="(max-width: 480px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/vpstart-solutionsx402.jpg">
+          srcset="./images/vpstart-solutionsx402.jpg">
         <source media="(max-width: 1024px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/vpstart-solutionsx768.jpg">
-        <source media="(min-width: 1025px)" srcset="https://vpstart.com/frontend/images/home/v2/vpstart-solutions.jpg">
-        <img src="https://vpstart.com/frontend/images/home/v2/vpstart-solutions.jpg" alt="Mr.Phally"
-          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
+          srcset="./images/vpstart-solutionsx768.jpg">
+        <source media="(min-width: 1025px)" srcset="./images/vpstart-solutions.jpg">
+        <img src="./images/vpstart-solutions.jpg" alt="VP.Start Solutions"
+          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
       <div class="topWhiteBgGradient z-10 top-white-shadow-overlay pointer-events-none"></div>
       <div class="pointer-events-none absolute z-2 h-20 w-[2px]" style="left:7%; top: 10%;">
@@ -494,7 +516,7 @@
         class="content-block w-full relative z-20 flex flex-col items-center justify-center text-center space-y-4 lg:space-y-6">
         <div class="sec-header-group space-y-4 lg:space-y-6">
           <h2
-            class="sec-title title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[56px] tracking-[2px] xl:text-nowrap">
+            class="sec-title title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[56px] tracking-[2px] md:text-nowrap">
             We at VP.Start Provide the Solutions
           </h2>
           <p
@@ -516,15 +538,15 @@
       <div class="bottomWhiteBgGradient z-10 bottom-white-shadow-overlay pointer-events-none"></div>
     </section>
     <section id="section-5"
-      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-center">
+      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex justify-center">
       <picture>
         <source media="(max-width: 480px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/sustainable-futurex402.jpg">
+          srcset="./images/sustainable-futurex402.jpg">
         <source media="(max-width: 1024px)"
-          srcset="https://vpstart.com/frontend/images/home/v2/sustainable-futurex768.jpg">
-        <source media="(min-width: 1025px)" srcset="https://vpstart.com/frontend/images/home/v2/sustainable-future.jpg">
-        <img src="https://vpstart.com/frontend/images/home/v2/sustainable-future.jpg" alt="Mr.Phally"
-          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
+          srcset="./images/sustainable-futurex768.jpg">
+        <source media="(min-width: 1025px)" srcset="./images/sustainable-future.jpg">
+        <img src="./images/sustainable-future.jpg" alt="Sustainable Future"
+          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
       <div class="absolute inset-0 w-full h-full bg-black/15"></div>
       <div class="topWhiteBgGradient z-10 top-white-shadow-overlay pointer-events-none"></div>
@@ -572,13 +594,13 @@
     <!-- SECTION 6: Sustainable Horizon (3 Buttons) -->
     <!-- ================================================================= -->
     <section id="section-6"
-      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex items-center justify-center">
+      class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex justify-center">
       <picture>
-        <source media="(max-width: 480px)" srcset="https://vpstart.com/frontend/images/home/v2/innovationx402.jpg">
-        <source media="(max-width: 1024px)" srcset="https://vpstart.com/frontend/images/home/v2/innovationx768.jpg">
-        <source media="(min-width: 1025px)" srcset="https://vpstart.com/frontend/images/home/v2/innovation.jpg">
-        <img src="https://vpstart.com/frontend/images/home/v2/innovation.jpg" alt="Mr.Phally"
-          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0 scale-105 transition-transform duration-1000">
+        <source media="(max-width: 480px)" srcset="./images/innovationx402.jpg">
+        <source media="(max-width: 1024px)" srcset="./images/innovationx768.jpg">
+        <source media="(min-width: 1025px)" srcset="./images/innovation.jpg">
+        <img src="./images/innovation.jpg" alt="Innovation"
+          class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
       <div class="topWhiteBgGradient z-10 top-white-shadow-overlay pointer-events-none"></div>
       <div class="absolute inset-0 w-full h-full bg-black/15"></div>
@@ -668,184 +690,305 @@
     });
 
     function setupSectionAnimations() {
-      const sections = document.querySelectorAll('.section-block');
+      const sections = document.querySelectorAll(".section-block");
 
       sections.forEach((sec, idx) => {
         ScrollTrigger.create({
           trigger: sec,
-          start: 'top 50%',
-          end: 'bottom 50%',
+          start: "top 50%",
+          end: "bottom 50%",
           onEnter: () => updateNav(idx),
-          onEnterBack: () => updateNav(idx)
+          onEnterBack: () => updateNav(idx),
         });
-        // Background Image subtle parallax scale with smooth ease-in-out
-        const bgImg = sec.querySelector('.bg-img');
-        // Section 2 - 8 Animations (White Shadow Hide -> Text shift to Top & Stick)
-        if (idx >= 0) {
-          const topWhiteBgGradient = sec.querySelector('.topWhiteBgGradient');
-          const bottomWhiteBgGradient = sec.querySelector('.bottomWhiteBgGradient');
-          const contentBlock = sec.querySelector('.content-block');
-          const titles = sec.querySelectorAll('.sec-title');
-          const subtitle = sec.querySelector('.sec-subtitle');
-          const desc = sec.querySelector('.sec-desc');
-          const descs = sec.querySelectorAll('.sec-desc');
-          const tag = sec.querySelector('.sec-tag');
-          const sustainableBtn = sec.querySelector('.sustainable-btn');
-          const learnMoreBtn = sec.querySelector('.sec-buttons');
 
-          function getTitleAnimationSize() {
-            const width = window.innerWidth;
+        const topWhiteBgGradient = sec.querySelector(
+          ".topWhiteBgGradient"
+        );
 
-            if (width >= 1024) {
-              // Large / desktop
-              return {
-                from: 72,
-                to: 56,
-              };
-            }
+        const bottomWhiteBgGradient = sec.querySelector(
+          ".bottomWhiteBgGradient"
+        );
 
-            if (width >= 768) {
-              // Medium / tablet
-              return {
-                from: 37,
-                to: 34,
-              };
-            }
+        const contentBlock = sec.querySelector(".content-block");
 
-            // Mobile
+        const titles = sec.querySelectorAll(".sec-title");
+
+        const subtitle = sec.querySelector(".sec-subtitle");
+
+        const descs = sec.querySelectorAll(".sec-desc");
+
+        const sustainableBtn = sec.querySelector(".sustainable-btn");
+
+        const learnMoreBtn = sec.querySelector(".sec-buttons");
+
+        // Only keep elements that actually exist
+        const buttonElements = [
+          sustainableBtn,
+          learnMoreBtn,
+        ].filter(Boolean);
+
+        function getTitleAnimationSize() {
+          const width = window.innerWidth;
+
+          if (width >= 1024) {
             return {
-              from: 26,
-              to: 24,
+              from: 62,
+              to: 56,
             };
           }
-          function getContentShift() {
-            const width = window.innerWidth;
 
-            if (width < 640) {
-              return "-23vh"; // mobile
-            }
+          if (width >= 768) {
+            return {
+              from: 37,
+              to: 34,
+            };
+          }
 
-            if (width < 1024) {
-              return "-28vh"; // tablet
-            }
+          return {
+            from: 26,
+            to: 26,
+          };
+        }
 
-            return "-25vh"; // desktop / large screen
-          }
-          if (descs.length) {
-            gsap.set(descs,
-              {
-                opacity: 0.5,
-                transformOrigin: "center center",
-                willChange: "transform, opacity"
-              }
-            );
-          }
-          if (subtitle) {
-            gsap.set(subtitle,
-              {
-                transformOrigin: "center center",
-                willChange: "transform, opacity"
-              }
-            );
-          }
-          if (sustainableBtn) {
-            gsap.set(sustainableBtn,
-              {
-                opacity: 0.5,
-                transformOrigin: "center center",
-                willChange: "transform, opacity"
-              }
-            );
-          }
-          // if (title) {
-          //   gsap.set(title,
-          //     {
-          //       fontSize: "72px",
-          //       transformOrigin: "center center",
-          //       willChange: "transform, opacity"
-          //     }
-          //   );
-          // }
+        function getContentShift() {
+          const width = window.innerWidth;
 
-          if (learnMoreBtn) {
-            gsap.set(learnMoreBtn,
-              {
-                opacity: 0.5,
-                transformOrigin: "center center",
-                willChange: "transform, opacity"
-              }
-            );
+          if (width < 640) {
+            return "-20vh";
           }
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: sec,
-              start: "top top",
-              end: "+=200%",
-              scrub: true,
-              pin: true,
-              anticipatePin: 1,
-              invalidateOnRefresh: true
-            }
+
+          if (width < 1024) {
+            return "-30vh";
+          }
+          if ( width < 1400) {
+            return "-24vh";
+          }
+          return "-32.5vh";
+        }
+
+        // --------------------------------------------------
+        // Initial states
+        // --------------------------------------------------
+
+        if (descs.length) {
+          gsap.set(descs, {
+            opacity: 0.5,
+            transformOrigin: "center center",
+            willChange: "transform, opacity",
           });
+        }
 
-          if (titles.length > 0) {
-            const { from, to } = getTitleAnimationSize();
+        if (subtitle) {
+          gsap.set(subtitle, {
+            transformOrigin: "center center",
+            willChange: "transform, opacity",
+          });
+        }
 
-            titles.forEach((el) => {
-              // Skip titles that are currently hidden
-              if (getComputedStyle(el).display === "none") {
-                return;
-              }
+        if (buttonElements.length) {
+          gsap.set(buttonElements, {
+            opacity: 0.5,
+            transformOrigin: "center center",
+            willChange: "transform, opacity",
+          });
+        }
 
-              gsap.set(el, {
-                fontSize: from,
+        if (bottomWhiteBgGradient) {
+          gsap.set(bottomWhiteBgGradient, {
+            opacity: 0,
+            yPercent: -100,
+            transformOrigin: "center center",
+            willChange: "transform, opacity",
+          });
+        }
+
+        // --------------------------------------------------
+        // Timeline
+        // --------------------------------------------------
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: "top top",
+            end: "+=100%",
+            scrub: 0.8,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        // --------------------------------------------------
+        // TITLE
+        // --------------------------------------------------
+
+        if (titles.length) {
+          const { from, to } = getTitleAnimationSize();
+
+          titles.forEach((el) => {
+            // Ignore hidden responsive title
+            if (getComputedStyle(el).display === "none") {
+              return;
+            }
+
+            gsap.set(el, {
+              fontSize: from,
+              transformOrigin: "center center",
+              willChange: "font-size",
+            });
+
+            tl.to(
+              el,
+              {
+                fontSize: to,
+                duration: 1.2,
                 transformOrigin: "center center",
                 willChange: "font-size",
-              });
+                ease: "none"
+              },
+              0.01
+            );
+          });
+        }
 
-              tl.to(
-                el,
-                {
-                  fontSize: to,
-                  duration: 1.5,
-                  ease: "power2.out",
-                },
-                // 0.05
-              );
-            });
-          }
-          if (bottomWhiteBgGradient) {
-            gsap.set(bottomWhiteBgGradient, {
-              opacity: 0,
+        // --------------------------------------------------
+        // PHASE 1
+        // --------------------------------------------------
+
+        if (topWhiteBgGradient) {
+          tl.fromTo(
+            topWhiteBgGradient,
+            {
+              opacity: 1,
+              yPercent: 0,
+            },
+            {
               yPercent: -100,
-              transformOrigin: "center center",
-              willChange: "transform, opacity"
-            })
-          }
-          // PHASE 1: bottom-to-top wipe reveal (unchanged)
-          tl.fromTo(topWhiteBgGradient,
-            { opacity: 1, yPercent: 0 },
-            { yPercent: -100, opacity: 1, ease: "power1.in", duration: 1.0 },
+              opacity: 1,
+              ease: "power1.in",
+              duration: 1,
+            },
             0.35
           );
-          // PHASE 2
-          const contentShift = getContentShift();
-          tl.to(contentBlock, { y: contentShift, ease: "power2.out", duration: 1.0 }, 0.35);
-          tl.to(descs, { opacity: 1, ease: "power1.in", duration: 0.75, stagger: 0.08 }, 0.02)
-            .to(sustainableBtn, { opacity: 1, ease: "power1.in", duration: 0.7, stagger: 0.08 }, 0.02)
-            .to(learnMoreBtn, { opacity: 1, ease: "power1.in", duration: 0.7, stagger: 0.08 }, 0.02)
+        }
 
-          // PHASE 3: content sticks near the top
-          tl.to(contentBlock, { y: contentShift, opacity: 1, ease: "none", duration: 1.0 }, 0.5)
-            // PHASE 4: shadow rises from fully below the viewport, stopping
-            .to(topWhiteBgGradient, { yPercent: -100, opacity: 0, ease: "power2.out", y: -500, duration: 1.0 }, ">")
-          if (bottomWhiteBgGradient) {
-            tl.fromTo(bottomWhiteBgGradient,
-              { opacity: 0, yPercent: 0 },
-              { yPercent: 100, opacity: 0, ease: "power1.in", duration: 1.0 }
-            )
-            tl.to(bottomWhiteBgGradient, { opacity: 1, yPercent: 100, duration: 1.5, ease: "power1.in" })
+        // --------------------------------------------------
+        // PHASE 2
+        // --------------------------------------------------
+
+        const contentShift = getContentShift();
+
+        if (contentBlock) {
+          tl.to(
+            contentBlock,
+            {
+              y: contentShift,
+              ease: "power2.out",
+              duration: 1,
+            },
+            0.35
+          );
+
+          // PHASE 3
+          tl.to(
+            contentBlock,
+            {
+              y: contentShift,
+              opacity: 1,
+              ease: "none",
+              duration: 1,
+            },
+            0.5
+          );
+        }
+
+        if (descs.length) {
+          tl.to(
+            descs,
+            {
+              opacity: 1,
+              ease: "power1.in",
+              duration: 0.75,
+              stagger: 0.08,
+            },
+            0.02
+          );
+        }
+
+        // Buttons: 0.5 -> 1
+        if (buttonElements.length) {
+          tl.to(
+            buttonElements,
+            {
+              opacity: 1,
+              ease: "power1.in",
+              duration: 0.7,
+              stagger: 0.08,
+            },
+            ">"
+          );
+        }
+
+        // --------------------------------------------------
+        // PHASE 4
+        // --------------------------------------------------
+
+        if (topWhiteBgGradient) {
+          tl.to(
+            topWhiteBgGradient,
+            {
+              yPercent: -100,
+              opacity: 0,
+              y: -500,
+              ease: "power2.out",
+              duration: 1,
+            },
+            ">"
+          );
+
+          // Buttons: 1 -> 0.5
+          if (buttonElements.length) {
+            tl.to(
+              buttonElements,
+              {
+                opacity: 0.6,
+                ease: "power1.in",
+                duration: 0.7,
+                stagger: 0.08,
+              },
+              ">"
+            );
           }
+        }
+
+        // --------------------------------------------------
+        // BOTTOM GRADIENT
+        // --------------------------------------------------
+
+        if (bottomWhiteBgGradient) {
+          tl.fromTo(
+            bottomWhiteBgGradient,
+            {
+              opacity: 0,
+              yPercent: 0,
+            },
+            {
+              yPercent: 100,
+              opacity: 0,
+              ease: "power1.in",
+              duration: 1,
+            }
+          );
+
+          tl.to(
+            bottomWhiteBgGradient,
+            {
+              opacity: 1,
+              yPercent: 100,
+              duration: 1.5,
+              ease: "power1.in",
+            }
+          );
         }
       });
     }
@@ -933,37 +1076,6 @@
       passive: false
     });
 
-    function openModal(title, description) {
-      const modal = document.getElementById('feature-modal');
-      const box = document.getElementById('modal-box');
-      document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-body').textContent = description;
-
-      modal.classList.remove('pointer-events-none', 'opacity-0');
-      modal.classList.add('opacity-100');
-      box.classList.remove('scale-95');
-      box.classList.add('scale-100');
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('feature-modal');
-      const box = document.getElementById('modal-box');
-
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modal.classList.remove('opacity-100');
-      box.classList.add('scale-95');
-      box.classList.remove('scale-100');
-    }
-
-    function toggleSound() {
-      soundOn = !soundOn;
-      const btn = document.getElementById('sound-btn');
-      if (soundOn) {
-        btn.innerHTML = `<i class="fa-solid fa-volume-high text-sm text-emerald-400"></i>`;
-      } else {
-        btn.innerHTML = `<i class="fa-solid fa-volume-xmark text-sm"></i>`;
-      }
-    }
   </script>
 </body>
 

@@ -452,7 +452,8 @@
             class="sec-title block md:hidden! title-gradient font-display text-[28px] font-black leading-[1.2] sm:text-5xl lg:text-[72px] tracking-[2px]">
             What kind of future do you want for our world?
           </h2>
-          <p class="sec-subtitle mx-auto text-base font-bold italic text-white sm:text-2xl lg:text-[28px] [-webkit-text-stroke:0.5px_#0600ff]">
+          <p
+            class="sec-subtitle mx-auto text-base font-bold italic text-white sm:text-2xl lg:text-[28px] [-webkit-text-stroke:0.5px_#0600ff]">
             “We at VP.Start Face the Worldwide Challenges”
           </p>
           <p class="sec-desc max-w-[50%] mx-auto font-normal text-white text-sm sm:text-base lg:text-lg leading-[150%]">
@@ -724,15 +725,16 @@
               }
             );
           }
-          if (title) {
-            gsap.set(title,
-              {
-                fontSize: "72px",
-                transformOrigin: "center center",
-                willChange: "transform, opacity"
-              }
-            );
-          }
+          // if (title) {
+          //   gsap.set(title,
+          //     {
+          //       fontSize: "72px",
+          //       transformOrigin: "center center",
+          //       willChange: "transform, opacity"
+          //     }
+          //   );
+          // }
+
           if (learnMoreBtn) {
             gsap.set(learnMoreBtn,
               {
@@ -753,6 +755,37 @@
               invalidateOnRefresh: true
             }
           });
+          function getTitleAnimationSize(el) {
+            const current = parseFloat(
+              window.getComputedStyle(el).fontSize
+            );
+
+            const scale = window.innerWidth >= 1024 ? 72 / 56 : 1.2;
+
+            return {
+              from: current * scale,
+              to: current
+            };
+          }
+          if (title.length) {
+            title.forEach((el) => {
+              const { from, to } = getTitleAnimationSize(el);
+
+              gsap.set(el, {
+                fontSize: from,
+                transformOrigin: "center center",
+                willChange: "transform"
+              });
+
+              if (idx !== 0) {
+                tl.to(el, {
+                  fontSize: to,
+                  duration: 1,
+                  ease: "none"
+                }, 0.05);
+              }
+            });
+          }
           if (bottomWhiteBgGradient) {
             gsap.set(bottomWhiteBgGradient, {
               opacity: 0,
@@ -762,25 +795,25 @@
             })
           }
           // PHASE 1: bottom-to-top wipe reveal (unchanged)
-            tl.fromTo(topWhiteBgGradient,
-              { opacity: 1, yPercent: 0 },
-              { yPercent: -100, opacity: 1, ease: "power1.in", duration: 1.0 },
-              0.35
-            );
-            // PHASE 2
-            
+          tl.fromTo(topWhiteBgGradient,
+            { opacity: 1, yPercent: 0 },
+            { yPercent: -100, opacity: 1, ease: "power1.in", duration: 1.0 },
+            0.35
+          );
+          // PHASE 2
+
           tl.to(contentBlock, { y: "-100%", ease: "power2.out", duration: 1.0 }, 0.35);
-          if (idx !== 0 && title) {
-            tl.to(title, { fontSize: "56px", duration: 1}, 0.02 )
-          }
+          // if (idx !== 0 && title) {
+          //   tl.to(title, { fontSize: "56px", duration: 1 }, 0.02)
+          // }
           tl.to(descs, { opacity: 1, ease: "power1.in", duration: 0.75, stagger: 0.08 }, 0.02)
-            .to(sustainableBtn, { opacity: 1, ease: "power1.in", duration: 0.7, stagger: 0.08 }, 0.02 )
-            .to(learnMoreBtn, { opacity: 1, ease: "power1.in", duration: 0.7, stagger: 0.08 }, 0.02 )
+            .to(sustainableBtn, { opacity: 1, ease: "power1.in", duration: 0.7, stagger: 0.08 }, 0.02)
+            .to(learnMoreBtn, { opacity: 1, ease: "power1.in", duration: 0.7, stagger: 0.08 }, 0.02)
 
           // PHASE 3: content sticks near the top
           tl.to(contentBlock, { y: "-100%", opacity: 1, ease: "none", duration: 1.0 }, 1.4)
-          // PHASE 4: shadow rises from fully below the viewport, stopping
-            .to(topWhiteBgGradient,{ yPercent: -100, opacity: 0, ease: "power2.out", y: -500, duration: 1.0 }, ">" )
+            // PHASE 4: shadow rises from fully below the viewport, stopping
+            .to(topWhiteBgGradient, { yPercent: -100, opacity: 0, ease: "power2.out", y: -500, duration: 1.0 }, ">")
           if (bottomWhiteBgGradient) {
             tl.fromTo(bottomWhiteBgGradient,
               { opacity: 0, yPercent: 0 },

@@ -61,6 +61,90 @@ html.lenis body {
     text-align: center;
 }
 
+.slide-media {
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    max-width: var(--page-max);
+    height: 100%;
+    margin-inline: auto;
+    object-fit: cover;
+    object-position: center center;
+}
+
+@media (max-width: 1023px) {
+    .slide-media {
+        object-position: center 35%;
+    }
+}
+
+@media (max-width: 639px) {
+    .slide-media {
+        object-position: center 28%;
+    }
+}
+
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide-content,
+.story-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding: 5.5rem 1.5rem 3rem;
+    text-align: center;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+}
+
+.slide-content [data-animate] {
+    will-change: transform, opacity;
+}
+
+@media (max-width: 1023px) {
+
+    .slide-content,
+    .story-copy {
+        padding: 5rem 1.25rem 2.5rem;
+    }
+}
+
+@media (max-width: 639px) {
+
+    .slide-content,
+    .story-copy {
+        padding: 4.5rem 1rem 2rem;
+    }
+}
+
+.story-copy-left {
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding-left: clamp(1.5rem, 5vw, 5rem);
+    padding-right: clamp(1.5rem, 5vw, 5rem);
+}
+
+@media (max-width: 1023px) {
+    .story-copy-left {
+        justify-content: flex-end;
+        padding-bottom: 4rem;
+    }
+}
+
+
 @keyframes particle-line {
     0% {
         opacity: 0;

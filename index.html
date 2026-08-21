@@ -21,221 +21,7 @@
 
   <!-- Lenis Smooth Scroll -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <style>
-    html.lenis,
-    html.lenis body {
-      height: auto;
-    }
 
-    html.lenis {
-      scroll-behavior: auto !important;
-    }
-
-    html.lenis body {
-      overscroll-behavior: none;
-    }
-
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-
-    .lenis.lenis-scrolling iframe {
-      pointer-events: none;
-    }
-
-    .story-slides {
-      position: absolute;
-      inset: 0;
-    }
-
-    .story-slide {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      visibility: hidden;
-    }
-
-    .story-slide:first-child {
-      visibility: visible;
-    }
-
-    .particle-line {
-      background: linear-gradient(to bottom,
-          rgba(232, 235, 238, 0.95) 0%,
-          rgba(140, 148, 156, 0.45) 50%,
-          rgba(70, 78, 86, 0) 100%);
-      animation: particle-line 2.222s linear infinite;
-    }
-
-    .particle-dot {
-      background-color: #e8ebef;
-      animation: particle-dot 2.222s linear infinite;
-    }
-
-    .particle-dot-delay,
-    .particle-line-delay {
-      animation-delay: 0.35s;
-    }
-
-    html,
-    body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    /*
- * Better GPU compositing for animated sections.
- */
-    .section-block {
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-
-    .bg-img,
-    .top-white-shadow-overlay,
-    .bottom-white-shadow-overlay {
-      backface-visibility: hidden;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0d0e12;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    .font-syne {
-      font-family: 'Syne', sans-serif;
-    }
-
-    .slide-media {
-      pointer-events: none;
-      display: block;
-      width: 100%;
-      max-width: var(--page-max);
-      height: 100%;
-      margin-inline: auto;
-      object-fit: cover;
-      object-position: center center;
-    }
-
-    @media (max-width: 1023px) {
-      .slide-media {
-        object-position: center 35%;
-      }
-    }
-
-    @media (max-width: 639px) {
-      .slide-media {
-        object-position: center 28%;
-      }
-    }
-
-    img:not(.slide-media) {
-      max-width: min(100%, 1920px);
-      height: auto;
-    }
-
-    .top-white-shadow-overlay {
-      position: absolute;
-      top: 0;
-      left: -10%;
-      right: -10%;
-      height: 100%;
-      overflow: hidden;
-      background: linear-gradient(0deg, rgba(86, 119, 146, 0), rgba(78, 108, 133, 0.75), rgba(78, 108, 133,1) 100%, rgba(244, 249, 253, 0) 60%);
-      /* background: linear-gradient(0deg, rgba(86, 119, 146, 0), rgba(78, 108, 133, 0.85), rgba(134, 154, 172, 0.98) 100%, rgba(244, 249, 253, 0) 60%); */
-      backdrop-filter: blur(0px);
-      -webkit-backdrop-filter: blur(0px);
-      isolation: isolate;
-      transform: translate3d(0, 0, 0);
-      will-change: transform, opacity;
-      pointer-events: none;
-      border: none !important;
-
-    }
-
-    .bottom-white-shadow-overlay {
-      position: absolute;
-      top: -100%;
-      left: -10%;
-      right: -10%;
-      height: 100%;
-      overflow: hidden;
-      /* background: linear-gradient(180deg, rgba(86, 119, 146, 0.1) 0%, rgba(78, 108, 133, 0.96) 24%, rgba(134, 154, 172, 0.98) 71.23%, rgba(244, 249, 253, 0.6) 100%); */
-      background: linear-gradient(0deg, rgba(78, 108, 133, 1) 2%,rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0.1) 100%);
-      backdrop-filter: blur(0px);
-      -webkit-backdrop-filter: blur(0px);
-      isolation: isolate;
-      transform: translate3d(0, 0, 0);
-      will-change: transform, opacity;
-      pointer-events: none;
-      border: none !important;
-    }
-
-    /* --------------------------------------------------
-   Section boundary gradients
--------------------------------------------------- */
-
-    .section-bottom-gradient,
-    .section-top-gradient {
-      position: absolute;
-      left: -5%;
-      right: -5%;
-      height: 14vh;
-      pointer-events: none;
-      z-index: 30;
-      will-change: opacity, transform;
-    }
-
-    /* Bottom of Section 1 */
-    .section-bottom-gradient {
-      bottom: -1px;
-      background: linear-gradient(to bottom,
-          rgba(134, 154, 172, 0) 0%,
-          rgba(134, 154, 172, 0.18) 35%,
-          rgba(134, 154, 172, 0.55) 70%,
-          rgba(134, 154, 172, 0.9) 100%);
-    }
-
-    /* Top of Section 2 */
-    .section-top-gradient {
-      top: -1px;
-      background: linear-gradient(to bottom,
-          rgba(134, 154, 172, 0.9) 0%,
-          rgba(134, 154, 172, 0.55) 30%,
-          rgba(134, 154, 172, 0.18) 70%,
-          rgba(134, 154, 172, 0) 100%);
-    }
-
-    /* Side Nav Indicator Pulse */
-    .nav-dot.active {
-      background-color: #ffffff;
-      transform: scale(1.4);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    }
-
-    /* Hide scrollbars for clean full-bleed visual experience */
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    * {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
 </head>
 
 <body class="relative antialiased selection:bg-white selection:text-black">
@@ -306,12 +92,12 @@
     <section id="section-2"
       class="section-block relative w-full max-w-[1920px] mx-auto h-screen overflow-hidden flex justify-center border-0!">
       <picture>
-        <source media="(max-width: 480px)"
+        <!-- <source media="(max-width: 480px)"
           srcset="./images/the-sima-journeyx402.jpg">
         <source media="(max-width: 1024px)"
           srcset="./images/the-sima-journeyx768.jpg">
-        <source media="(min-width: 1025px)" srcset="./images/the-sima-journey.jpg">
-        <img src="./images/the-sima-journey.jpg" alt="The SIMA JOURNEY"
+        <source media="(min-width: 1025px)" srcset="./images/the-sima-journey.jpg"> -->
+        <img src="./images/the-sima-journey-v2.jpg" alt="The SIMA JOURNEY"
           class="bg-img slide-media absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_28%] lg:object-center z-0  transition-transform duration-1000">
       </picture>
       <div class="topWhiteBgGradient z-10 top-white-shadow-overlay pointer-events-none"></div>
@@ -638,7 +424,8 @@
       <div class="bottomWhiteBgGradient z-10 bottom-white-shadow-overlay pointer-events-none"></div>
     </section>
   </main>
-  <script>
+  <script src="script.js"></script>
+  <!-- <script>
     let lenis;
     let currentSectionIndex = 0;
     const totalSections = 6;
@@ -1078,7 +865,7 @@
       passive: false
     });
 
-  </script>
+  </script> -->
 </body>
 
 </html>
